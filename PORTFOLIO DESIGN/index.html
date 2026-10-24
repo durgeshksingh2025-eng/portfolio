@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durgesh Singh | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080f1b;
+            color: #f1f5f9;
+            line-height: 1.7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: #0b1321;
+            border-bottom: 1px solid #263449;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span,
+        h1 span,
+        .section-title {
+            color: #168cff;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #168cff;
+        }
+
+        section {
+            padding: 65px 8%;
+            scroll-margin-top: 75px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            min-height: 440px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            margin: 8px 0;
+        }
+
+        .hero h3 {
+            font-size: 20px;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .hero p,
+        .about p {
+            color: #b8c5d8;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            background: #168cff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #168cff;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #168cff;
+        }
+
+        .outline {
+            background: transparent;
+            color: #168cff;
+        }
+
+        .hero-image {
+            flex: 0 1 350px;
+            min-height: 300px;
+            background: linear-gradient(135deg, #10294b, #087bdf);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-size: 100px;
+        }
+
+        .about,
+        .skills,
+        .projects,
+        .education,
+        .contact {
+            border-top: 1px solid #172538;
+        }
+
+        .section-title {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 35px;
+        }
+
+        .info-box,
+        .skill-card,
+        .project-card {
+            background: #101b2c;
+            border: 1px solid #263449;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .skill-card h3 {
+            color: #168cff;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #1b304b;
+            color: #dceaff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 4px 2px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .project-card h3 {
+            color: #168cff;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #b8c5d8;
+            margin-bottom: 15px;
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .education-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact a {
+            color: #168cff;
+            text-decoration: none;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #101b2c;
+            border: 1px solid #263449;
+            border-radius: 7px;
+            color: white;
+            font: inherit;
+        }
+
+        form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        form button {
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: #0b1321;
+            border-top: 1px solid #263449;
+            color: #9caec5;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 45px 6%;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-image {
+                width: 100%;
+                min-height: 220px;
+            }
+
+            .about-container,
+            .skills-container,
+            .projects-container,
+            .education-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Durgesh <span>Singh</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p>Hello, I'm 👋</p>
+            <h1>Durgesh <span>Singh</span></h1>
+            <h3>B.Tech CSE Student | Web Developer</h3>
+
+            <p>
+                I build modern and responsive websites.
+                I'm passionate about learning new technologies
+                and turning ideas into real projects.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">View My Projects →</a>
+                <a href="#contact" class="btn outline">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="WhatsApp Image 2026-10-14 at 7.31.49 PM.jpeg" alt="" height="600" ,width="550">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <p class="section-title">About Me</p>
+        <h2>Who I Am</h2>
+
+        <div class="about-container">
+            <div>
+                <p>
+                    I'm Durgesh Singh, a B.Tech Computer Science
+                    student from Bihar. I enjoy learning programming,
+                    solving problems, and exploring new technologies.
+                    My goal is to get a good job in a top MNC and
+                    eventually build my own technology company.
+                </p>
+
+                <a href="#education" class="btn">Know More →</a>
+            </div>
+
+            <div class="info-box">
+                <p>🎓 <strong>Education:</strong> B.Tech CSE</p>
+                <p>📍 <strong>Location:</strong> Bihar, India</p>
+                <p>🎯 <strong>Goal:</strong> Become a skilled developer</p>
+                <p>💡 <strong>Interest:</strong> Web Development & DSA</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <p class="section-title">My Skills</p>
+        <h2>Technical Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Programming</h3>
+                <span class="tag">C</span>
+                <span class="tag">Python</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+            <div class="skill-card">
+                <h3>Web Development</h3>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">React</span>
+            </div>
+
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <span class="tag">VS Code</span>
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+            </div>
+
+            <div class="skill-card">
+                <h3>Computer Science</h3>
+                <span class="tag">DSA</span>
+                <span class="tag">Algorithms</span>
+                <span class="tag">DBMS</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <p class="section-title">My Projects</p>
+        <h2>Featured Projects</h2>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-icon">📚</div>
+                <h3>Online Bookstore</h3>
+                <p>
+                    A bookstore website with multiple pages
+                    and a simple book catalogue.
+                </p>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🍔</div>
+                <h3>Food Delivery Website</h3>
+                <p>
+                    A food delivery website inspired by
+                    modern online food ordering platforms.
+                </p>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🤖</div>
+                <h3>Resume Analyser</h3>
+                <p>
+                    An AI-based project idea to analyse resumes
+                    and identify relevant skills.
+                </p>
+                <span class="tag">Python</span>
+                <span class="tag">AI</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <p class="section-title">My Background</p>
+        <h2>Education & Goals</h2>
+
+        <div class="education-container">
+            <div class="info-box">
+                <h3>🎓 Education</h3>
+                <p><strong>B.Tech in Computer Science</strong></p>
+                <p>GL Bajaj Institute of Technology and Management</p>
+                <p>Expected Graduation: 2029</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🚀 My Goals</h3>
+                <p>• Improve my coding skills</p>
+                <p>• Master web development</p>
+                <p>• Learn Data Structures and Algorithms</p>
+                <p>• Build my own technology company</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <p class="section-title">Get In Touch</p>
+        <h2>Contact Me</h2>
+
+        <div class="contact-container">
+            <div>
+                <p>
+                    Have a project idea or want to connect?
+                    Feel free to send me a message.
+                </p>
+
+                <p>📧 Email: <a href="durgeshsingh1750@gmail.com">
+                    durgeshsingh1750@gmail.com</a></p>
+
+                <p>💻 GitHub:
+                    <a href="https://github.com/durgeshksingh2025-eng" target="_blank">
+                        Visit My GitHub
+                    </a>
+                </p>
+
+                <p>🔗 LinkedIn:
+                    <a href="https://www.linkedin.com/in/durgesh-singh-303a013ab/?isSelfProfile=true" target="_blank">
+                        Visit My LinkedIn
+                    </a>
+                </p>
+            </div>
+
+            <form action="durgeshsingh1750@gmail.com">
+                  method="post" enctype="text/plain">
+                <input type="text" name="name"
+                       placeholder="Your Name" required>
+
+                <input type="email" name="email"
+                       placeholder="Your Email" required>
+
+                <textarea name="message"
+                          placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message →
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Durgesh Singh | Built with HTML & CSS 💙</p>
+        <p>Code | Learn | Build | Grow</p>
+    </footer>
+
+</body>
+</html>
